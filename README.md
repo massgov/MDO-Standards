@@ -3,13 +3,13 @@
 
 ### Table of Contents 
 1. Tools
-    * Compute
-    * Storage
-    * AWS Management
-    * Identity Management
+    * Compute - CM
+    * Storage - KM
+    * AWS Management - KM
+    * Identity Management - CM
 2. Code
-    * R
-    * Python
+    * R - CM
+    * Python - KM
     * Directory Structure
     * Unit Tests
     * Code Reviews
