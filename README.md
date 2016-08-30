@@ -1,6 +1,3 @@
----
-output: pdf_document
----
 # Massachusetts Data Office Standards 
 ## Version 0.1
 
@@ -25,3 +22,4 @@ output: pdf_document
     * Requesting Additional Resources
     * Productivity and Communication
 
+### Tools 
