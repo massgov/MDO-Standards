@@ -1,7 +1,10 @@
-# Massachusetts Data Office Standards 
+---
+output: pdf_document
+---
+# Massachusetts Data Office Standards
 ## Version 0.1
 
-### Table of Contents 
+### Table of Contents
 1. Tools
     * Compute - CM
     * Storage - KM
@@ -23,19 +26,45 @@
     * Productivity and Communication
     * Data Storage and Versioning - KM
 
-### Tools 
+### Tools
+
+#### Compute
+
+This section will discuss MDO standards with respect to compute resources, both internal and external.
+The following should be viewed as a rough guideline for compute resources to be used at each phase of
+any analytics project:
+
+|  Phase  | Compute Resources                                                                          |
+|---------|--------------------------------------------------------------------------------------------|
+| Acquire | Laptop/desktop                                                                             |
+| Munge   | If data can fit in local memory, laptop/desktop. Else, offsite resource.                   |
+| Model   | Dependent on model complexity. Strive for models which can be fit on small, local samples. |
+| Validate| Offsite resource, freeing local resources.                                                 |
+| Deploy  | Offsite resource.                                                                          |
+
+Regardless, members of the MDO should strive to keep as much compute work local as possible, both for
+security and cost savings.
+
+Here is a list, in no particular order, of offsite compute resources members of the MDO should
+leverage when necessary.
+
+###### AWS EC2
+Amazon Web Services' EC2 instances are the preferred medium for offsite compute resources, both from an
+access and interoperability standpoint. You can find a guide on EC2 basics [here]() and a tool which
+will allow you to search for compute instances and compare costs given project requirements, [here]().
+The MDO standard with respect to OS is Ubuntu for all EC2 instances, unless otherwise required.
 
 #### Storage
-    
-The priorities for the Massachusetts Data Office for data storage are security, internal accessibility, stability and cost. These priorities can shift based on the project duration, staffing and sensitivity but all four are still the main concerns.  
+
+The priorities for the Massachusetts Data Office for data storage are security, internal accessibility, stability and cost. These priorities can shift based on the project duration, staffing and sensitivity but all four are still the main concerns.
 
  * Security
-        
+
  Storage should be easy to secure by changing access controls. The data should be protected with modern security features and robust authentication for access. It also will conform to all legal standards that might accompany the data such as FERPA or HIPAA. See below for specifics on authentication and access controls.
 
  * Internal Accessibility
 
- All the data used in storage must be easily accessible by members of the data team. This means that all work will be done on the same standard data and any changes will be available to all members of the team as discussed in the data storage section. This access should be as fast as the data size allows and work with multiple analysis platforms. This also covers the ease of starting up a new storage location, which ideally is instantaneous. 
+ All the data used in storage must be easily accessible by members of the data team. This means that all work will be done on the same standard data and any changes will be available to all members of the team as discussed in the data storage section. This access should be as fast as the data size allows and work with multiple analysis platforms. This also covers the ease of starting up a new storage location, which ideally is instantaneous.
 
  * Stability
 
@@ -53,9 +82,9 @@ All storage options will be set up in the format spelled out in data storage sec
 
 Amazon's S3 product is the preferred storage location for all shared data used by the data team due to its format agnostic storage. It also provides internet access that can be secured with unique keys. The data is secured and connections are encrpyted. If the data is better stored in a database an Amazon (or other brand) RDS instance can be used that purpose with a similar process to the S3 instance.
 
-This is our default storage location for project and a new bucket is created for each project. 
+This is our default storage location for project and a new bucket is created for each project.
 
-As the team explores other cloud-based options other systems might take precendence. 
+As the team explores other cloud-based options other systems might take precendence.
 
 * Agency servers
 
@@ -63,9 +92,9 @@ Agencies might not be able to provide data directly and will only give access to
 
 * Local
 
-Data can be locally stored for temporary processes but for any process that will be shared the data used should be backed up in a location where all other team members can access it. Each project bucket will have a personal folder for individual's branched work. 
-    
-* MassIT servers - 
+Data can be locally stored for temporary processes but for any process that will be shared the data used should be backed up in a location where all other team members can access it. Each project bucket will have a personal folder for individual's branched work.
+
+* MassIT servers -
 
 Certain specialized servers including RServers could be requested from MITC. For MassIT specific projects such as Mass.gov, data is already stored there and the servers can then be treated as an agency server.
 
@@ -75,14 +104,14 @@ Certain specialized servers including RServers could be requested from MITC. For
 
 All access to cloud and server storage will be controlled with public and private keys. These will either be keys set up from agencies or MassIT or credentials supplied by the cloud vendor. Helpful information on setting up an ssh config file: http://www.howtogeek.com/75007/stupid-geek-tricks-use-your-ssh-config-file-to-create-aliases-for-hosts/
 
-S3 security assumes that all buckets are set to only be accessed by holders of a MassIT AWS account that will be verified by credentials stored locally or on each call. More information on this will be added as the security system is tested. 
+S3 security assumes that all buckets are set to only be accessed by holders of a MassIT AWS account that will be verified by credentials stored locally or on each call. More information on this will be added as the security system is tested.
 
 #### AWS Management
 
 ##### Structure
 
 * S3
-    
+
 Each S3 bucket will be named with the following convention PROJECT_NAME.data.digital.mass.gov and will be seeded with a permissions file described below and with the file structure specified in data storage. Each bucket will also be tagged with a tag (data-office:project) NEED THIS for billing purposes.
 
 Tags:
@@ -91,9 +120,9 @@ Finance - {"owning_project":project_name}
 
 * EC2
 
-There will be shared EC2 instances to run processes and scripts on large files. These instances will be set up with the appropriate packages and libraries installed to run scripts. 
+There will be shared EC2 instances to run processes and scripts on large files. These instances will be set up with the appropriate packages and libraries installed to run scripts.
 
-EC2 instances that are supporting dashboards or a web interface will be 
+EC2 instances that are supporting dashboards or a web interface will be
 
 Individuals can also set up their own instances for one-off tests
 
@@ -109,16 +138,13 @@ Language - {"language":language} - which libraries have been prepared
 
 ##### Security
 
-By default all the data office's work will be done in a single VPC (virtual private cloud). This cloud will allow team members to run various instances within the cloud and have them all talk to each other securely without any access permitted from external servers. This might require a "jumpbox" setup on a small EC2 instance which serves as a intermediary that team members will use to access database instances on the cloud. 
+By default all the data office's work will be done in a single VPC (virtual private cloud). This cloud will allow team members to run various instances within the cloud and have them all talk to each other securely without any access permitted from external servers. This might require a "jumpbox" setup on a small EC2 instance which serves as a intermediary that team members will use to access database instances on the cloud.
 
 * S3
-    
+
 The S3 buckets will all be set up with a common security policy in JSON form that will only allow members of the data team access to read and write from the bucket. These permissions can be changed on a case by base if certain data needs to be shared outside of the team. The policy will be written as follows :{policy:WE NEED TO COME UP WITH A POLICY!}
 
 * EC2
 
 THIS IS SOMETHING WE'LL NEED TO IRON OUT
-Each EC2 instance is secured with a specific .pem file. Individual's instances will store their .pem keys locally which collective ones will be stored on an EC2 instance in the VPC that each user will have the .pem that accesses that server and that server only. 
-
-
-
+Each EC2 instance is secured with a specific .pem file. Individual's instances will store their .pem keys locally which collective ones will be stored on an EC2 instance in the VPC that each user will have the .pem that accesses that server and that server only.
