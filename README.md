@@ -50,9 +50,26 @@ leverage when necessary.
 
 ###### AWS EC2
 Amazon Web Services' EC2 instances are the preferred medium for offsite compute resources, both from an
-access and interoperability standpoint. You can find a guide on EC2 basics [here]() and a tool which
-will allow you to search for compute instances and compare costs given project requirements, [here]().
+access and interoperability standpoint. You can find a guide on EC2 basics [here](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/concepts.html) and a tool which
+will allow you to search for compute instances and compare costs given project requirements, [here](http://www.ec2instances.info/).
 The MDO standard with respect to OS is Ubuntu for all EC2 instances, unless otherwise required.
+
+* Connecting to an Instance
+
+Connecting to any EC2 instance should be done via ssh tunnel using a locally generated private-public
+key pair. See the section on ssh within identity management for more information on key pairs and how
+to create them.
+[comment]: # (may need to update if we do vpc option)
+
+* Efficient Use and Power v. Cost
+
+It is important to efficiently use the compute resources while they are being rented. Therefore,
+whenever possible, code should be written in such a way to reduce processing time and minimize idle
+resources by leveraging parallelism, more efficient code in other packages, and other tools which
+optimize code, such as [cython](https://github.com/cython/cython).
+
+It is clear that power and cost will be at the forefront of the decision process when selecting compute
+resources 
 
 #### Storage
 
