@@ -482,22 +482,58 @@ The point of having style guidelines is to have a common vocabulary of coding so
 
 The general file structure of data storage which should be duplicated across all types of storage and locations should be as follows.
 
-.
-+-- _config.yml
-+-- _drafts
-|   +-- begin-with-the-crazy-ideas.textile
-|   +-- on-simplicity-in-technology.markdown
-+-- _includes
-|   +-- footer.html
-|   +-- header.html
-+-- _layouts
-|   +-- default.html
-|   +-- post.html
-+-- _posts
-|   +-- 2007-10-29-why-every-programmer-should-play-nethack.textile
-|   +-- 2009-04-26-barcamp-boston-4-roundup.textile
-+-- _data
-|   +-- members.yml
-+-- _site
-+-- index.html
+```
+data
+│   
+│
+└─── raw_data - data directly from the source
+|   | 
+│   │   README.md
+│   │
+│   └───source_1
+│   |   │   file012.csv
+│   |   │   file112.RDS
+│   |   └─── ...  
+|   |
+|   └─── source_2
+|       |
+|       |
+│       └───...   
+|
+|
+|
+└─── final_data
+|   |  README.md - Description of transformations
+|   │ 
+|   │  
+│   └─── analysis_1
+│   |   │   file015.csv
+│   |   │   file111.RDS
+│   |   └─── ...  
+|   |
+|   └─── analysis_2
+│       │   file012.csv
+│       │   file112.RDS
+|       |
+|       └───... 
+│ 
+└─── personal_folders
+    |  README.md - Description of test transformations/tests
+    │ 
+    │  
+    └─── user1
+    |   │   file0120.csv
+    |   │   file11.RDS
+    |   └─── ...  
+    |
+    └─── user2
+        │   file2.csv
+        │   file156.RDS
+        |
+        └───... 
+
+
+
+```
+
 
