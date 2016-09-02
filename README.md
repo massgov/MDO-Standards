@@ -111,7 +111,7 @@ Agencies might not be able to provide data directly and will only give access to
 
 Data can be locally stored for temporary processes but for any process that will be shared the data used should be backed up in a location where all other team members can access it. Each project bucket will have a personal folder for individual's branched work.
 
-* MassIT servers -
+* MassIT servers
 
 Certain specialized servers including RServers could be requested from MITC. For MassIT specific projects such as Mass.gov, data is already stored there and the servers can then be treated as an agency server.
 
@@ -165,3 +165,14 @@ The S3 buckets will all be set up with a common security policy in JSON form tha
 
 THIS IS SOMETHING WE'LL NEED TO IRON OUT
 Each EC2 instance is secured with a specific .pem file. Individual's instances will store their .pem keys locally which collective ones will be stored on an EC2 instance in the VPC that each user will have the .pem that accesses that server and that server only.
+
+### Code Standards
+
+* Python
+
+The data office will conform to PEP8 standards found [here](https://www.python.org/dev/peps/pep-0008/). These standards can be tested locally by team members using the package [pep8](http://pep8.readthedocs.io/en/release-1.7.x/index.html). 
+
+### Process
+
+#### Data Storage and Versioning
+
