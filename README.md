@@ -206,10 +206,9 @@ BAD: foo.R
 
 ###### Identifiers
 
-Don't use underscores ( _ ) or hyphens ( - ) in identifiers. Identifiers should be named according to the following
-conventions. The preferred form for variable names is all lower case letters and words separated with dots
-(variable.name), but variableName is also accepted; function names have initial capital letters and no dots
-(FunctionName);
+Don't use underscores ( _ ) or hyphens ( - ) in identifiers. Identifiers should be named according to the following conventions.
+
+The preferred form for variable names is all lower case letters and words separated with dots (variable.name), but variableName is also accepted; function names have initial capital letters and no dots (FunctionName);
 
 GOOD: avg.clicks
 BAD: avg_Clicks
@@ -219,9 +218,11 @@ OK: calculateAvgClicks
 BAD: calculate_avg_clicks
 
 Make function names verbs.
+
 Exception: When creating a classed object, the function name (constructor) and class should match (e.g., lm).
 
-constants are named like functions but with an initial k
+Constants are named like functions but with an initial k
+
 GOOD: kConstantName
 BAD: i, j, k etc...
 
@@ -282,7 +283,7 @@ GOOD: `if (debug)`
 BAD: `if(debug)`
 
 Extra spacing (i.e., more than one space in a row) is okay if it improves alignment of equals signs or arrows (<-).
-  
+
 ```
 plot(x    = x.coord,
      y    = data.mat[, MakeColName(metric, ptiles[1], "roiOpt")],
@@ -296,57 +297,65 @@ Do not place spaces around code in parentheses or square brackets.
 Exception: Always place a space after a comma.
 
 GOOD:
-
+```
 if (debug)
 x[1, ]
 BAD:
-
+```
 if ( debug )  # No spaces around debug
 x[1,]  # Needs a space after the comma
-Curly Braces
+```
 
-An opening curly brace should never go on its own line; a closing curly brace should always go on its own line. You may omit curly braces when a block consists of a single statement; however, you must consistently either use or not use curly braces for single statement blocks.
+* Curly Braces
 
+An opening curly brace should never go on its own line; a closing curly brace should always go on its own line.
 
+```
 if (is.null(ylim)) {
   ylim <- c(0, 0.06)
 }
 xor (but not both)
 
-
-if (is.null(ylim))
-  ylim <- c(0, 0.06)
 Always begin the body of a block on a new line.
 
 BAD:
+```
 if (is.null(ylim)) ylim <- c(0, 0.06)
 if (is.null(ylim)) {ylim <- c(0, 0.06)}
+```
 
 Surround else with braces
 
 An else statement should always be surrounded on the same line by curly braces.
 
-
+GOOD:
+```
 if (condition) {
   one or more lines
 } else {
   one or more lines
 }
-BAD:
+```
 
+BAD:
+```
 if (condition) {
   one or more lines
 }
 else {
   one or more lines
 }
-BAD:
+```
 
+BAD:
+```
 if (condition)
   one line
 else
   one line
-Assignment
+```
+
+* Assignment
 
 Use <-, not =, for assignment.
 
