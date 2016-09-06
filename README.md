@@ -1,7 +1,7 @@
 ---
 output: pdf_document
 ---
-# Massachusetts Data Office Standards
+# Massachusetts Data Office Standards - DRAFT
 ## Version 0.1
 
 ### Table of Contents
@@ -111,7 +111,7 @@ Agencies might not be able to provide data directly and will only give access to
 
 Data can be locally stored for temporary processes but for any process that will be shared the data used should be backed up in a location where all other team members can access it. Each project bucket will have a personal folder for individual's branched work.
 
-* MassIT servers -
+* MassIT servers
 
 Certain specialized servers including RServers could be requested from MITC. For MassIT specific projects such as Mass.gov, data is already stored there and the servers can then be treated as an agency server.
 
@@ -166,7 +166,15 @@ The S3 buckets will all be set up with a common security policy in JSON form tha
 THIS IS SOMETHING WE'LL NEED TO IRON OUT
 Each EC2 instance is secured with a specific .pem file. Individual's instances will store their .pem keys locally which collective ones will be stored on an EC2 instance in the VPC that each user will have the .pem that accesses that server and that server only.
 
+### Code Standards
+
+
+=======
 ### Code
+
+#### Python
+
+The data office will conform to PEP8 standards found [here](https://www.python.org/dev/peps/pep-0008/). These standards can be tested locally by team members using the package [pep8](http://pep8.readthedocs.io/en/release-1.7.x/index.html). 
 
 #### R Style Guide
 
@@ -476,3 +484,65 @@ Use common sense and BE CONSISTENT.
 If you are editing code, take a few minutes to look at the code around you and determine its style. If others use spaces around their if clauses, you should, too. If their comments have little boxes of stars around them, make your comments have little boxes of stars around them, too.
 
 The point of having style guidelines is to have a common vocabulary of coding so people can concentrate on what you are saying, rather than on how you are saying it. We present global style rules here so people know the vocabulary. But local style is also important. If code you add to a file looks drastically different from the existing code around it, the discontinuity will throw readers out of their rhythm when they go to read it. Try to avoid this.
+
+### Process
+
+#### Data Storage and Versioning
+
+The general file structure of data storage which should be duplicated across all types of storage and locations should be as follows.
+
+```
+data
+│   
+│
+└─── raw_data - data directly from the source
+|   | 
+│   │   README.md
+│   │
+│   └───source_1
+│   |   │   file012.csv
+│   |   │   file112.RDS
+│   |   └─── ...  
+|   |
+|   └─── source_2
+|       |
+|       |
+│       └───...   
+|
+|
+|
+└─── final_data
+|   |  README.md - Description of transformations
+|   │ 
+|   │  
+│   └─── analysis_1
+│   |   │   file015.csv
+│   |   │   file111.RDS
+│   |   └─── ...  
+|   |
+|   └─── analysis_2
+│       │   file012.csv
+│       │   file112.RDS
+|       |
+|       └───... 
+│ 
+└─── personal_folders
+    |  README.md - Description of test transformations/tests
+    │ 
+    │  
+    └─── user1
+    |   │   file0120.csv
+    |   │   file11.RDS
+    |   └─── ...  
+    |
+    └─── user2
+        │   file2.csv
+        │   file156.RDS
+        |
+        └───... 
+
+
+
+```
+
+
