@@ -379,9 +379,9 @@ BAD: `x = 5`
 
 Do not terminate your lines with semicolons or use semicolons to put more than one command on the same line. (Semicolons are not necessary, and are omitted for consistency with other Google style guides.)
 
-Organization
+##### Organization
 
-General Layout and Ordering
+* General Layout and Ordering
 
 If everyone uses the same general ordering, we'll be able to read and understand each other's scripts faster and more easily.
 
@@ -395,17 +395,19 @@ Unit tests should go in a separate file named originalfilename_test.R.
 
 Commenting Guidelines
 
-Comment your code. Entire commented lines should begin with # and one space.
+Comment your code. Entire commented lines should begin with \# and one space.
 
-Short comments can be placed after code preceded by two spaces, #, and then one space.
-
+Short comments can be placed after code preceded by two spaces, \#, and then one space.
+```
 # Create histogram of frequency of campaigns by pct budget spent.
 hist(df$pct.spent,
      breaks = "scott",  # method for choosing number of buckets
      main   = "Histogram: fraction budget spent by campaignid",
      xlab   = "Fraction of budget spent",
      ylab   = "Frequency (count of campaignids)")
-Function Definitions and Calls
+```
+
+* Function Definitions and Calls
 
 Function definitions should first list arguments without default values, followed by those with default values.
 
@@ -419,7 +421,7 @@ PredictCTR <- function(query, property, num.days, show.plot =
                        TRUE)
 Ideally, unit tests should serve as sample function calls (for shared library routines).
 
-Function Documentation
+* Function Documentation
 
 Functions should contain a comments section immediately below the function definition line. These comments should consist of a one-sentence description of the function; a list of the function's arguments, denoted by Args:, with a description of each (including the data type); and a description of the return value, denoted by Returns:. The comments should be descriptive enough that a caller can use the function without reading any of the function's code.
 
@@ -452,12 +454,12 @@ CalculateSampleCovariance <- function(x, y, verbose = TRUE) {
   return(covariance)
 }
 ```
-TODO Style
+* TODO Style
 
 Use a consistent style for TODOs throughout your code.
 TODO(username): Explicit description of action to be taken
 
-Language
+##### Language
 
 Attach
 
