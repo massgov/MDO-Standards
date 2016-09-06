@@ -174,7 +174,7 @@ Each EC2 instance is secured with a specific .pem file. Individual's instances w
 
 #### Python
 
-The data office will conform to PEP8 standards found [here](https://www.python.org/dev/peps/pep-0008/). These standards can be tested locally by team members using the package [pep8](http://pep8.readthedocs.io/en/release-1.7.x/index.html). 
+The data office will conform to PEP8 standards found [here](https://www.python.org/dev/peps/pep-0008/). These standards can be tested locally by team members using the package [pep8](http://pep8.readthedocs.io/en/release-1.7.x/index.html).
 
 #### R Style Guide
 
@@ -209,8 +209,8 @@ The data office will conform to PEP8 standards found [here](https://www.python.o
 File names should end in .R and, of course,
 be meaningful.
 
-GOOD: predict_ad_revenue.R
-BAD: foo.R
+GOOD: `predict_ad_revenue.R`
+BAD: `foo.R`
 
 ###### Identifiers
 
@@ -218,12 +218,14 @@ Don't use underscores ( _ ) or hyphens ( - ) in identifiers. Identifiers should 
 
 The preferred form for variable names is all lower case letters and words separated with dots (variable.name), but variableName is also accepted; function names have initial capital letters and no dots (FunctionName);
 
-GOOD: avg.clicks
-BAD: avg_Clicks
+GOOD: `avg.clicks`
+BAD: `avg_Clicks`
+
 FunctionName
-GOOD: CalculateAvgClicks
-OK: calculateAvgClicks
-BAD: calculate_avg_clicks
+
+GOOD: `CalculateAvgClicks`
+OK: `calculateAvgClicks`
+BAD: `calculate_avg_clicks`
 
 Make function names verbs.
 
@@ -231,8 +233,8 @@ Exception: When creating a classed object, the function name (constructor) and c
 
 Constants are named like functions but with an initial k
 
-GOOD: kConstantName
-BAD: i, j, k etc...
+GOOD: `kConstantName`
+BAD: `i, j, k etc...`
 
 ##### Syntax
 
@@ -308,6 +310,8 @@ GOOD:
 ```
 if (debug)
 x[1, ]
+```
+
 BAD:
 ```
 if ( debug )  # No spaces around debug
@@ -322,7 +326,7 @@ An opening curly brace should never go on its own line; a closing curly brace sh
 if (is.null(ylim)) {
   ylim <- c(0, 0.06)
 }
-xor (but not both)
+```
 
 Always begin the body of a block on a new line.
 
@@ -365,15 +369,13 @@ else
 
 * Assignment
 
-Use <-, not =, for assignment.
+Use `<-`, not `=`, for assignment. Exception; within functions and loops `=` should always be used and never `<-`
 
-GOOD:
-x <- 5
+GOOD: `x <- 5`
 
-BAD:
-x = 5
+BAD: `x = 5`
 
-Semicolons
+* Semicolons
 
 Do not terminate your lines with semicolons or use semicolons to put more than one command on the same line. (Semicolons are not necessary, and are omitted for consistency with other Google style guides.)
 
@@ -493,56 +495,54 @@ The general file structure of data storage which should be duplicated across all
 
 ```
 data
-│   
+│
 │
 └─── raw_data - data directly from the source
-|   | 
+|   |
 │   │   README.md
 │   │
 │   └───source_1
 │   |   │   file012.csv
 │   |   │   file112.RDS
-│   |   └─── ...  
+│   |   └─── ...
 |   |
 |   └─── source_2
 |       |
 |       |
-│       └───...   
+│       └───...
 |
 |
 |
 └─── final_data
 |   |  README.md - Description of transformations
-|   │ 
-|   │  
+|   │
+|   │
 │   └─── analysis_1
 │   |   │   file015.csv
 │   |   │   file111.RDS
-│   |   └─── ...  
+│   |   └─── ...
 |   |
 |   └─── analysis_2
 │       │   file012.csv
 │       │   file112.RDS
 |       |
-|       └───... 
-│ 
+|       └───...
+│
 └─── personal_folders
     |  README.md - Description of test transformations/tests
-    │ 
-    │  
+    │
+    │
     └─── user1
     |   │   file0120.csv
     |   │   file11.RDS
-    |   └─── ...  
+    |   └─── ...
     |
     └─── user2
         │   file2.csv
         │   file156.RDS
         |
-        └───... 
+        └───...
 
 
 
 ```
-
-
