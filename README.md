@@ -213,15 +213,14 @@ BAD: `foo.R`
 
 Don't use underscores ( _ ) or hyphens ( - ) in identifiers. Identifiers should be named according to the following conventions.
 
-The preferred form for variable names is all lower case letters and words separated with dots (variable.name), but variableName is also accepted; function names have initial capital letters and no dots (FunctionName);
+The preferred form for variable names is all lower case letters and words separated with dots (variable.name)
 
 GOOD: `avg.clicks`
 BAD: `avg_Clicks`
 
-FunctionName
+Function names should be descriptive wrt the functions utility and follow a camel case format. 
 
-GOOD: `CalculateAvgClicks`
-OK: `calculateAvgClicks`
+GOOD: `calculateAvgClicks`
 BAD: `calculate_avg_clicks`
 
 Make function names verbs.
