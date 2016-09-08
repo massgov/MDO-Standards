@@ -68,9 +68,6 @@ whenever possible, code should be written in such a way to reduce processing tim
 resources by leveraging parallelism, more efficient code in other packages, and other tools which
 optimize code, such as [cython](https://github.com/cython/cython).
 
-It is clear that power and cost will be at the forefront of the decision process when selecting compute
-resources
-
 #### Storage
 
 The priorities for the Massachusetts Data Office for data storage are security, internal accessibility, stability and cost. These priorities can shift based on the project duration, staffing and sensitivity but all four are still the main concerns.
@@ -181,13 +178,13 @@ The data office will conform to PEP8 standards found [here](https://www.python.o
 ##### Summary: R Style Rules
 
 1. File Names: end in .R
-2. Identifiers: variable.name (or variableName), FunctionName, kConstantName
+2. Identifiers: `variable.name`, `FunctionName` (or `functionName`), `kConstantName`
 3. Line Length: maximum 80 characters
 4. Indentation: two spaces, no tabs
 5. Spacing
 6. Curly Braces: first on same line, last on own line
-7. else: Surround else with braces
-8. Assignment: use <-, not =
+7. `else`: Surround `else` with braces
+8. Assignment: use `<-`, not `=`
 9. Semicolons: dont use them
 10. General Layout and Ordering
 11. Commenting Guidelines: all comments begin with # followed by a space; inline comments need two spaces before the #
@@ -266,7 +263,7 @@ someFuntion(arg1,
 
 * Spacing
 
-Place spaces around all binary operators (=, +, -, <-, ==, /, *, ^).
+Place spaces around all binary operators (`=, +, -, <-, ==, /, *, ^`).
 
 Do not place a space before a comma, but always place one after a comma.
 
@@ -377,7 +374,7 @@ BAD: `x = 5`
 
 * Semicolons
 
-Do not terminate your lines with semicolons or use semicolons to put more than one command on the same line. (Semicolons are not necessary, and are omitted for consistency with other Google style guides.)
+Do not terminate your lines with semicolons or use semicolons to put more than one command on the same line.
 
 ##### Organization
 
@@ -385,19 +382,19 @@ Do not terminate your lines with semicolons or use semicolons to put more than o
 
 If everyone uses the same general ordering, we'll be able to read and understand each other's scripts faster and more easily.
 
-Copyright statement comment
+Copyright statement comment (not always necessary)
 Author comment
 File description comment, including purpose of program, inputs, and outputs
 source() and library() statements
-Function definitions
+Function definitions should go in a separate file (*_functions.R)
 Executed statements, if applicable (e.g., print, plot)
 Unit tests should go in a separate file named originalfilename_test.R.
 
-Commenting Guidelines
+* Commenting Guidelines
 
-Comment your code. Entire commented lines should begin with \# and one space.
+Comment your code. Entire commented lines should begin with # and one space.
 
-Short comments can be placed after code preceded by two spaces, \#, and then one space.
+Short comments can be placed after code preceded by two spaces, #, and then one space.
 ```
 # Create histogram of frequency of campaigns by pct budget spent.
 hist(df$pct.spent,
@@ -411,19 +408,27 @@ hist(df$pct.spent,
 
 Function definitions should first list arguments without default values, followed by those with default values.
 
-In both function definitions and function calls, multiple arguments per line are allowed; line breaks are only allowed between assignments.
-GOOD:
+In both function definitions and function calls, multiple arguments per line are allowed; line breaks are only allowed
+between assignments.
 
+GOOD:
+```
 PredictCTR <- function(query, property, num.days,
                        show.plot = TRUE)
+```
 BAD:
+```
 PredictCTR <- function(query, property, num.days, show.plot =
                        TRUE)
+```
 Ideally, unit tests should serve as sample function calls (for shared library routines).
 
 * Function Documentation
 
-Functions should contain a comments section immediately below the function definition line. These comments should consist of a one-sentence description of the function; a list of the function's arguments, denoted by Args:, with a description of each (including the data type); and a description of the return value, denoted by Returns:. The comments should be descriptive enough that a caller can use the function without reading any of the function's code.
+Functions should contain a comments section immediately below the function definition line. These comments should consist
+of a one-sentence description of the function; a list of the function's arguments, denoted by Args:, with a description
+of each (including the data type); and a description of the return value, denoted by Returns:. The comments should be
+descriptive enough that a caller can use the function without reading any of the function's code.
 
 Example Function
 
@@ -457,37 +462,49 @@ CalculateSampleCovariance <- function(x, y, verbose = TRUE) {
 * TODO Style
 
 Use a consistent style for TODOs throughout your code.
-TODO(username): Explicit description of action to be taken
+
+`TODO(username): Explicit description of action to be taken`
 
 ##### Language
 
-Attach
+* Attach
 
 The possibilities for creating errors when using attach are numerous. Avoid it.
 
-Functions
+* Functions
 
-Errors should be raised using stop().
+Errors should be raised using `stop()`.
 
-Objects and Methods
+* Objects and Methods
 
-The S language has two object systems, S3 and S4, both of which are available in R. S3 methods are more interactive and flexible, whereas S4 methods are more formal and rigorous. (For an illustration of the two systems, see Thomas Lumley's "Programmer's Niche: A Simple Class, in S3 and S4" in R News 4/1, 2004, pgs. 33 - 36: https://cran.r-project.org/doc/Rnews/Rnews_2004-1.pdf.)
+The S language has two object systems, S3 and S4, both of which are available in R. S3 methods are more interactive and
+flexible, whereas S4 methods are more formal and rigorous. (For an illustration of the two systems, see Thomas Lumley's
+"Programmer's Niche: A Simple Class, in S3 and S4" in R News 4/1, 2004, pgs. 33 - 36:
+https://cran.r-project.org/doc/Rnews/Rnews_2004-1.pdf.)
 
-Use S3 objects and methods unless there is a strong reason to use S4 objects or methods. A primary justification for an S4 object would be to use objects directly in C++ code. A primary justification for an S4 generic/method would be to dispatch on two arguments.
+Use S3 objects and methods unless there is a strong reason to use S4 objects or methods. A primary justification for an
+S4 object would be to use objects directly in C++ code. A primary justification for an S4 generic/method would be to
+dispatch on two arguments.
 
 Avoid mixing S3 and S4: S4 methods ignore S3 inheritance and vice-versa.
 
-Exceptions
+* Exceptions
 
-The coding conventions described above should be followed, unless there is good reason to do otherwise. Exceptions include legacy code and modifying third-party code.
+The coding conventions described above should be followed, unless there is good reason to do otherwise. Exceptions
+include legacy code and modifying third-party code.
 
-Parting Words
+##### Parting Words
 
 Use common sense and BE CONSISTENT.
 
-If you are editing code, take a few minutes to look at the code around you and determine its style. If others use spaces around their if clauses, you should, too. If their comments have little boxes of stars around them, make your comments have little boxes of stars around them, too.
+If you are editing code, take a few minutes to look at the code around you and determine its style. If others use spaces
+around their if clauses, you should, too. If their comments have little boxes of stars around them, make your comments
+have little boxes of stars around them, too.
 
-The point of having style guidelines is to have a common vocabulary of coding so people can concentrate on what you are saying, rather than on how you are saying it. We present global style rules here so people know the vocabulary. But local style is also important. If code you add to a file looks drastically different from the existing code around it, the discontinuity will throw readers out of their rhythm when they go to read it. Try to avoid this.
+The point of having style guidelines is to have a common vocabulary of coding so people can concentrate on what you are
+saying, rather than on how you are saying it. We present global style rules here so people know the vocabulary. But local
+style is also important. If code you add to a file looks drastically different from the existing code around it, the
+discontinuity will throw readers out of their rhythm when they go to read it. Try to avoid this.
 
 ### Process
 
