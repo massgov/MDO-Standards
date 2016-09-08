@@ -163,6 +163,9 @@ The S3 buckets will all be set up with a common security policy in JSON form tha
 THIS IS SOMETHING WE'LL NEED TO IRON OUT
 Each EC2 instance is secured with a specific .pem file. Individual's instances will store their .pem keys locally which collective ones will be stored on an EC2 instance in the VPC that each user will have the .pem that accesses that server and that server only.
 
+#### Identity Management
+Members of the Data Office should strive to setup both external and internal user identities in a consistent format, so that it is clear who is doing what, regardless of platform. Members should create user identities that reflect who is doing the work associated with a profile. Avoid personal handles or identifiers which obscure your identity for anything related to Data Office work. Additionally, members should strive to keep all identities CONSISTENT with one another. If, for example, a users identity is JSmith on Github that user should use the JSmith handle on all platforms, altering it as minimally as is necessary. 
+
 ### Code Standards
 
 
@@ -218,7 +221,7 @@ The preferred form for variable names is all lower case letters and words separa
 GOOD: `avg.clicks`
 BAD: `avg_Clicks`
 
-Function names should be descriptive wrt the functions utility and follow a camel case format. 
+Function names should be descriptive wrt the functions utility and follow a camel case format.
 
 GOOD: `calculateAvgClicks`
 BAD: `calculate_avg_clicks`
