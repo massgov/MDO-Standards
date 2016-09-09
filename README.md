@@ -384,13 +384,13 @@ Do not terminate your lines with semicolons or use semicolons to put more than o
 
 If everyone uses the same general ordering, we'll be able to read and understand each other's scripts faster and more easily.
 
-...Copyright statement comment (not always necessary)
-...Author comment
-...File description comment, including purpose of program, inputs, and outputs
-...source() and library() statements
-...Function definitions should go in a separate file (*_functions.R)
-...Executed statements, if applicable (e.g., print, plot)
-...Unit tests should go in a separate file named originalfilename_test.R.
+   Copyright statement comment (not always necessary)
+   Author comment
+   File description comment, including purpose of program, inputs, and outputs
+   source() and library() statements
+   Function definitions should go in a separate file (*_functions.R)
+   Executed statements, if applicable (e.g., print, plot)
+   Unit tests should go in a separate file named originalfilename_test.R.  
 
 * Commenting Guidelines
 
