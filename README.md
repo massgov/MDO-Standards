@@ -172,9 +172,10 @@ Each EC2 instance is secured with a specific .pem file. Individual's instances w
 Members of the Data Office should strive to setup both external and internal user identities in a consistent format, so that it is clear who is doing what, regardless of platform. Members should create user identities that reflect who is doing the work associated with a profile. Avoid personal handles or identifiers which obscure your identity for anything related to Data Office work. Additionally, members should strive to keep all identities CONSISTENT with one another. If, for example, a users identity is JSmith on Github that user should use the JSmith handle on all platforms, altering it as minimally as is necessary.
 
 * SSH
+  
 SSH should be used to access and secure resources whenever possible. Some things to keep in mind:
 1. Ensure your ssh keys are named appropriately, denoting what they are used to access without being too explicit, eg aws_ssh
-2. **NEVER EVER** share private keys with **anyone** especially over email!
+2. **NEVER EVER** share private keys with **anyone**, especially over email!
 3. **NEVER** save private keys anywhere except for your local machine, encrpyting this folder may be a smart move.
 
 ### Code Standards
