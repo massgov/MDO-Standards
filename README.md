@@ -68,6 +68,9 @@ whenever possible, code should be written in such a way to reduce processing tim
 resources by leveraging parallelism, more efficient code in other packages, and other tools which
 optimize code, such as [cython](https://github.com/cython/cython).
 
+###### MGHPCC
+The MDO has a SaaS/HaaS agreement with the Massachusetts High Performance Computing Center (MGHPCC) for storage and compute resources. As of this writing it is currently unclear what sort of compute options are available, however MGHPCC has provided ample storage at a low cost and the same may be true for compute resources. To determine if a particular project/process could be sent off to MGHPCC resources first seek approval from leadership in the MDO. If approved a contact at MGHPCC will be provided.
+
 #### Storage
 
 The priorities for the Massachusetts Data Office for data storage are security, internal accessibility, stability and cost. These priorities can shift based on the project duration, staffing and sensitivity but all four are still the main concerns.
@@ -164,7 +167,15 @@ THIS IS SOMETHING WE'LL NEED TO IRON OUT
 Each EC2 instance is secured with a specific .pem file. Individual's instances will store their .pem keys locally which collective ones will be stored on an EC2 instance in the VPC that each user will have the .pem that accesses that server and that server only.
 
 #### Identity Management
+
+* User IDs
 Members of the Data Office should strive to setup both external and internal user identities in a consistent format, so that it is clear who is doing what, regardless of platform. Members should create user identities that reflect who is doing the work associated with a profile. Avoid personal handles or identifiers which obscure your identity for anything related to Data Office work. Additionally, members should strive to keep all identities CONSISTENT with one another. If, for example, a users identity is JSmith on Github that user should use the JSmith handle on all platforms, altering it as minimally as is necessary.
+
+* SSH
+SSH should be used to access and secure resources whenever possible. Some things to keep in mind:
+1. Ensure your ssh keys are named appropriately, denoting what they are used to access without being too explicit, eg aws_ssh
+2. **NEVER EVER** share private keys with **anyone** especially over email!
+3. **NEVER** save private keys anywhere except for your local machine, encrpyting this folder may be a smart move.
 
 ### Code Standards
 
