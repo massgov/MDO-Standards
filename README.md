@@ -164,7 +164,7 @@ THIS IS SOMETHING WE'LL NEED TO IRON OUT
 Each EC2 instance is secured with a specific .pem file. Individual's instances will store their .pem keys locally which collective ones will be stored on an EC2 instance in the VPC that each user will have the .pem that accesses that server and that server only.
 
 #### Identity Management
-Members of the Data Office should strive to setup both external and internal user identities in a consistent format, so that it is clear who is doing what, regardless of platform. Members should create user identities that reflect who is doing the work associated with a profile. Avoid personal handles or identifiers which obscure your identity for anything related to Data Office work. Additionally, members should strive to keep all identities CONSISTENT with one another. If, for example, a users identity is JSmith on Github that user should use the JSmith handle on all platforms, altering it as minimally as is necessary. 
+Members of the Data Office should strive to setup both external and internal user identities in a consistent format, so that it is clear who is doing what, regardless of platform. Members should create user identities that reflect who is doing the work associated with a profile. Avoid personal handles or identifiers which obscure your identity for anything related to Data Office work. Additionally, members should strive to keep all identities CONSISTENT with one another. If, for example, a users identity is JSmith on Github that user should use the JSmith handle on all platforms, altering it as minimally as is necessary.
 
 ### Code Standards
 
@@ -390,7 +390,7 @@ File description comment, including purpose of program, inputs, and outputs
 source() and library() statements
 Function definitions should go in a separate file (*_functions.R)
 Executed statements, if applicable (e.g., print, plot)
-Unit tests should go in a separate file named originalfilename_test.R.
+Unit tests should go in a separate file named originalfilename_test.R.  
 
 * Commenting Guidelines
 
