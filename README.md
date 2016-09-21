@@ -175,16 +175,14 @@ Members of the Data Office should strive to setup both external and internal use
 * SSH
 
 SSH should be used to access and secure resources whenever possible. Some things to keep in mind:
-  
+
 1. Ensure your ssh keys are named appropriately, denoting what they are used to access without being too explicit, eg aws_ssh
 2. **NEVER EVER** share private keys with **anyone**, especially over email!
 3. **NEVER** save private keys anywhere except for your local machine, encrpyting this folder may be a smart move.
 
+To create an ssh key on mac enter the following command into the terminal `ssh-keygen -t rsa`. You will then be prompted to provide a storage location (or to use the default location, ~/.ssh/) and password. Once this is complete the keypair (public, with .pub appended, and private) will be generated in the location denoted by the user.
+
 ### Code Standards
-
-
-=======
-### Code
 
 #### Python
 
@@ -275,6 +273,16 @@ BAD:
 ```
 someFuntion(arg1,
   arg2)
+```
+
+Following PEP8 style, it is permissible to break before or after a binary operator, as long as the convention is consistent locally. For new code the following style is suggested:
+
+```
+income <- (gross.wages
+          + taxable.interest
+          + (dividends - qualified.dividends)
+          - ira.deduction
+          - student.loan.interest)
 ```
 
 * Spacing
@@ -422,6 +430,8 @@ hist(df$pct.spent,
 
 * Function Definitions and Calls
 
+R is a functional language and as such authors of R code should strive to adhere to the priciples of functional programming. To read more on how FP and R interplay, refer to Hadley Wickam\'s [Advanced R](http://adv-r.had.co.nz/Functional-programming.html)
+
 Function definitions should first list arguments without default values, followed by those with default values.
 
 In both function definitions and function calls, multiple arguments per line are allowed; line breaks are only allowed
@@ -479,7 +489,7 @@ CalculateSampleCovariance <- function(x, y, verbose = TRUE) {
 
 Use a consistent style for TODOs throughout your code.
 
-`TODO(username): Explicit description of action to be taken`
+`# TODO(username): Explicit description of action to be taken`
 
 ##### Language
 
@@ -514,8 +524,8 @@ include legacy code and modifying third-party code.
 Use common sense and BE CONSISTENT.
 
 If you are editing code, take a few minutes to look at the code around you and determine its style. If others use spaces
-around their if clauses, you should, too. If their comments have little boxes of stars around them, make your comments
-have little boxes of stars around them, too.
+around their if clauses, you should too. If their comments have little boxes of stars around them, make your comments
+have little boxes of stars around them.
 
 The point of having style guidelines is to have a common vocabulary of coding so people can concentrate on what you are
 saying, rather than on how you are saying it. We present global style rules here so people know the vocabulary. But local
