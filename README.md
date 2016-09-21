@@ -410,9 +410,9 @@ If everyone uses the same general ordering, we'll be able to read and understand
 2. Author comment
 3. File description comment, including purpose of program, inputs, and outputs
 4. source() and library() statements
-5. Function definitions should go in a separate file (*_functions.R)
+5. Functions and definitions should go in a separate file (*_functions.R)
 6. Executed statements, if applicable (e.g., print, plot)
-7. Unit tests should go in a separate file named originalfilename_test.R
+7. Unit tests should go in a separate file named (*_test.R)
 
 * Commenting Guidelines
 
@@ -430,7 +430,9 @@ hist(df$pct.spent,
 
 * Function Definitions and Calls
 
-R is a functional language and as such authors of R code should strive to adhere to the priciples of functional programming. To read more on how FP and R interplay, refer to Hadley Wickam\'s [Advanced R](http://adv-r.had.co.nz/Functional-programming.html)
+R is a functional language and as such authors of R code should strive to adhere to the priciples of functional programming. To read more on how FP and R interplay, refer to Hadley Wickam's [Advanced R](http://adv-r.had.co.nz/Functional-programming.html).
+
+The idea behind writing functions is to make your code cleaner, more readable, and less prone to error. Keeping with this mentality functions should be as general as possible, independent of the machine or system architecture, and narrowly defined with a single or closely related set of tasks as the target. Functions that "do everything" or functions that enclose many layers of other user-defined functions should only be employed if absolutely necessary for the code to work. Anonymous functions and closures can be defined outside of a *_functions.R file if doing so adds to the readability of the code.
 
 Function definitions should first list arguments without default values, followed by those with default values.
 
@@ -439,15 +441,32 @@ between assignments.
 
 GOOD:
 ```
-PredictCTR <- function(query, property, num.days,
+predictCTR <- function(query, property, num.days,
                        show.plot = TRUE)
 ```
 BAD:
 ```
-PredictCTR <- function(query, property, num.days, show.plot =
+predictCTR <- function(query, property, num.days, show.plot =
                        TRUE)
 ```
 Ideally, unit tests should serve as sample function calls (for shared library routines).
+
+* Sourcing
+
+All functions must be sourced like so `lib::function(x)` with exceptions for base functions, operators such as `%>%`, and user-defined functions. This is done to avoid 'masking' between packages which often have overlapping functions, even if they are written by the same author.
+
+GOOD:
+```
+dat %>%
+  dplyr::select(col1) %>%
+  dplyr::summarise(colmean = mean(col1))
+```
+BAD:
+```
+dat %>%
+  select(col1) %>%
+  summarise(colmean = mean(col1))
+```
 
 * Function Documentation
 
