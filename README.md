@@ -184,6 +184,18 @@ To create an ssh key on mac enter the following command into the terminal `ssh-k
 
 ### Code Standards
 
+#### Process
+The following will enumerate the ideal coding process through which a member should traverse when writing any piece of code for the MDO.
+1. Gather requirements
+2. Write tests
+3. Rough documentation, comments, and pseudo-code
+4. Test code
+5. Finalize documentation
+6. Style review, code review
+7. Integration testing
+8. Pull Request
+9. Deployment/integration with code base
+
 #### Python
 
 The data office will conform to PEP8 standards found [here](https://www.python.org/dev/peps/pep-0008/). These standards can be tested locally by team members using the package [pep8](http://pep8.readthedocs.io/en/release-1.7.x/index.html).
@@ -428,7 +440,7 @@ hist(df$pct.spent,
      ylab   = "Frequency (count of campaignids)")
 ```
 
-* Function Definitions and Calls
+##### Functions
 
 R is a functional language and as such authors of R code should strive to adhere to the priciples of functional programming. To read more on how FP and R interplay, refer to Hadley Wickam's [Advanced R](http://adv-r.had.co.nz/Functional-programming.html).
 
