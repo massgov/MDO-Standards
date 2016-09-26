@@ -194,7 +194,7 @@ The following will enumerate the ideal coding process through which a member sho
 6. Style review, code review
 7. Integration testing
 8. Pull Request
-9. Deployment/integration with code base
+9. Deployment/integration with code base  
 
 #### Python
 
