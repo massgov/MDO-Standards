@@ -186,6 +186,7 @@ To create an ssh key on mac enter the following command into the terminal `ssh-k
 
 #### Process
 The following will enumerate the ideal coding process through which a member should traverse when writing any piece of code for the MDO.
+  
 1. Gather requirements
 2. Write tests
 3. Rough documentation, comments, and pseudo-code
@@ -194,7 +195,7 @@ The following will enumerate the ideal coding process through which a member sho
 6. Style review, code review
 7. Integration testing
 8. Pull Request
-9. Deployment/integration with code base  
+9. Deployment/integration with code base
 
 #### Python
 
