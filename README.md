@@ -186,16 +186,17 @@ To create an ssh key on mac enter the following command into the terminal `ssh-k
 
 #### Process
 The following will enumerate the ideal coding process through which a member should traverse when writing any piece of code for the MDO.
-  
+
 1. Gather requirements
 2. Write tests
 3. Rough documentation, comments, and pseudo-code
-4. Test code
-5. Finalize documentation
-6. Style review, code review
-7. Integration testing
-8. Pull Request
-9. Deployment/integration with code base
+4. Write code
+5. Test code
+6. Finalize documentation
+7. Style review, code review
+8. Integration testing
+9. Pull Request
+10. Deployment/integration with code base
 
 #### Python
 
@@ -206,7 +207,7 @@ The data office will conform to PEP8 standards found [here](https://www.python.o
 ##### Summary: R Style Rules
 
 1. File Names: end in .R
-2. Identifiers: `variable.name`, `FunctionName` (or `functionName`), `kConstantName`
+2. Identifiers: `variable.name`, `FunctionName` (or `functionName`), `CONSTANT.NAME`
 3. Line Length: maximum 80 characters
 4. Indentation: two spaces, no tabs
 5. Spacing
@@ -255,10 +256,18 @@ Make function names verbs.
 
 Exception: When creating a classed object, the function name (constructor) and class should match (e.g., lm).
 
-Constants are named like functions but with an initial k
+Constants are named in all caps and declared at the beginning of the script, typically after the loading of libraries and sourcing of functions
 
-GOOD: `kConstantName`
+GOOD: `CONSTANT.NAME`
 BAD: `i, j, k etc...`
+
+```
+library(foo)
+
+source("bar.R"")
+
+CONSTANT.BAZ <- .05
+```
 
 ##### Syntax
 
@@ -288,7 +297,7 @@ someFuntion(arg1,
   arg2)
 ```
 
-Following PEP8 style, it is permissible to break before or after a binary operator, as long as the convention is consistent locally. For new code the following style is suggested:
+Following PEP8 style, it is permissible to break before or after a binary operator, as long as the convention is consistent locally. For new code the following style is strongly suggested for readability sake:
 
 ```
 income <- (gross.wages
@@ -298,7 +307,7 @@ income <- (gross.wages
           - student.loan.interest)
 ```
 
-* Spacing
+* Spacing and Flow
 
 Place spaces around all binary operators (`=, +, -, <-, ==, /, *, ^`).
 
@@ -425,7 +434,7 @@ If everyone uses the same general ordering, we'll be able to read and understand
 4. source() and library() statements
 5. Functions and definitions should go in a separate file (*_functions.R)
 6. Executed statements, if applicable (e.g., print, plot)
-7. Unit tests should go in a separate file named (*_test.R)
+7. Unit tests should go in a separate file named (test_*.R)
 
 * Commenting Guidelines
 
