@@ -273,7 +273,7 @@ CONSTANT.BAZ <- .05
 
 * Line Length
 
-The maximum line length is 80 characters. Use tools such as break lines to identify where this is positionally.
+The maximum line length is 100 characters. Use tools such as break lines to identify where this is positionally.
 It is all right to stray from this standard if doing so significantly affects how comprehensible a given block of code
 is.
 
