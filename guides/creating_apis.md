@@ -7,13 +7,13 @@ This guide also will assume the reader is on a mac with [`brew` installed](brew.
 
 ## Contents
 
-[Quickstart Guide](## Quickstart Guide)
+[Quickstart Guide](#quickstart-guide)
 
-[Serverless](## Serverless)
+[Serverless](#serverless)
 
-[Creating Derivatives for AWS Lambda](### Creating Derivatives for AWS Lambda)
+[Creating Derivatives for AWS Lambda](#creating-derivatives-for-aws-lambda)
 
-[Server-based with Docker and ELB](## Server-based with Docker and ELB)
+[Server-based with Docker and ELB](#server-based-with-docker-and-elb)
 
 
 
