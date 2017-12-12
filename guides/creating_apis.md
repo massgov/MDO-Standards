@@ -18,16 +18,11 @@ This guide also will assume the reader is on a mac with [`brew` installed](brew.
 
 
 ## Quickstart Guide
-This guide will show you how to create a simple 1 lambda api which uses sklearn to produce a prediction given a numeric input from an API stood up behind the API Gateway.
+This guide will show you how to create a simple 1 lambda api which uses `sklearn` to produce a 2 class sample and serve it from an API stood up via the API Gateway.
 
 ### Prereqs
 Install the following or ensure these are installed on your local system:
-
-`brew`, or `apt`, or similar package manager.
-
-python 2.7
-
-python 3.6
+Python 2.7
 
 [`pip`](https://pip.pypa.io/en/stable/installing/)
 
@@ -134,4 +129,16 @@ finally `cd` back up to the root project dir and run `apex deploy`.
 
 Log in to the AWS console go to lambda and find the function named `ml_api_sample_producer` and create a random test, the body does no matter. Test the lambda and notice the output. 
 
-Now we need to place the api gateway in front of this lambda so we can expose it over http and put proper controls in place. 
+Now we need to place the api gateway in front of this lambda so we can expose it over http and put proper controls in place.
+
+1. Log in to the AWS console and navigate to the lambda dashboard and select Functions
+
+![]('../img/lambda_funcs.png')
+
+2. Select your function and under "Add Triggers" click API Gateway
+
+![]('../img/add_triggers.png')
+
+3. Click the "Configuration Required" link and fill out the form. Of interest is the stage and security. Stage should be one of prod, stage, dev for official api stages or some personal name for testing.
+
+![]('../img/configure_apig.png')
