@@ -7,13 +7,13 @@ This guide also will assume the reader is on a mac with [`brew` installed](brew.
 
 ## Contents
 
-[Quickstart Guide](#quickstart-guide)
+1. [Quickstart Guide](#quickstart-guide)
 
-[Serverless](#serverless)
+    1. [Serverless](#serverless)
 
-[Creating Derivatives for AWS Lambda](#creating-derivatives-for-aws-lambda)
+2. [Creating Derivatives for AWS Lambda](#creating-derivatives-for-aws-lambda)
 
-[Server-based with Docker and ELB](#server-based-with-docker-and-elb)
+3. [Server-based with Docker and ELB](#server-based-with-docker-and-elb)
 
 
 
@@ -139,6 +139,9 @@ Now we need to place the api gateway in front of this lambda so we can expose it
 
 ![](img/add_triggers.png)
 
-3. Click the "Configuration Required" link and fill out the form. Of interest is the stage and security. Stage should be one of prod, stage, dev for official api stages or some personal name for testing.
+3. Click the "Configuration Required" link and fill out the form. Of interest is the stage and security. Stage should be one of prod, stage, dev for official api stages or some personal name for testing. Security is normally set to "Open with access key" for our normally deployed services, you can set this as appropriate for your app.
 
 ![](img/configure_apig.png)
+
+
+
