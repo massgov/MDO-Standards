@@ -108,10 +108,15 @@ def create_payload(n_classes=N_CLASSES):
     X, y = make_classification(n_features=2, n_redundant=0, n_informative=2,
             random_state=0, n_clusters_per_class=1, n_classes=int(n_classes))
     logger.info('creating blank payload')
-    payload = {}
+    payload = {
+        'statusCode': 200,
+        'headers': {}
+    }
+    body = {}
     for index, column in enumerate(X.T):
-        payload['vec_{}'.format(index)] = list(column)
-    payload['target'] = list(y)
+        body['vec_{}'.format(index)] = list(column)
+    body['target'] = list(y)
+    payload['body'] = json.dumps(body)  # body must be string
     logger.info('created payload {}'.format(json.dumps(payload, indent=2)))
     return payload
 
@@ -123,9 +128,9 @@ def handle(event, context):
     event_string = json.dumps(event, indent=2)
     logger.info('received event {}'.format(event_string))
     payload = create_payload()
-    return json.dumps(payload)
+    return payload
 ```
-finally `cd` back up to the root project dir and run `apex deploy`.
+finally `cd` back up to the root project dir and run `apex deploy -s N_CLASSES=2`. The `s` flag allows us to set environmental variables when deploying.
 
 Log in to the AWS console go to lambda and find the function named `ml_api_sample_producer` and create a random test, the body does no matter. Test the lambda and notice the output. 
 
@@ -142,6 +147,24 @@ Now we need to place the api gateway in front of this lambda so we can expose it
 3. Click the "Configuration Required" link and fill out the form. Of interest is the stage and security. Stage should be one of prod, stage, dev for official api stages or some personal name for testing. Security is normally set to "Open with access key" for our normally deployed services, you can set this as appropriate for your app.
 
 ![](img/configure_apig.png)
+
+4. Click Save
+
+5. Navigate to the API gateway dashboard
+
+![](img/apig.png)
+
+6. Click the "Test" button above the lightning bolt
+
+You should see the results in the console. Further work on this is beyond the scope of this guide however next steps would include:
+
+1. Creating an API key for development and testing purposes
+
+2. Error handling and response codes
+
+3. Creating logic for and implementing the GET method, or other methods as appropriate.
+
+
 
 
 
