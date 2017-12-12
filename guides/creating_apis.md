@@ -133,12 +133,12 @@ Now we need to place the api gateway in front of this lambda so we can expose it
 
 1. Log in to the AWS console and navigate to the lambda dashboard and select Functions
 
-![]('img/lambda_funcs.png')
+![]('/img/lambda_funcs.png')
 
 2. Select your function and under "Add Triggers" click API Gateway
 
-![]('img/add_triggers.png')
+![]('/img/add_triggers.png')
 
 3. Click the "Configuration Required" link and fill out the form. Of interest is the stage and security. Stage should be one of prod, stage, dev for official api stages or some personal name for testing.
 
-![]('img/configure_apig.png')
+![]('/img/configure_apig.png')
