@@ -9,9 +9,9 @@ This guide also will assume the reader is on a mac with [`brew` installed](brew.
 
 1. [Quickstart Guide](#quickstart-guide)
 
-    1. [Serverless](#serverless)
+2. [Serverless](#serverless)
 
-2. [Creating Derivatives for AWS Lambda](#creating-derivatives-for-aws-lambda)
+    1. [Creating Derivatives for AWS Lambda](#creating-derivatives-for-aws-lambda)
 
 3. [Server-based with Docker and ELB](#server-based-with-docker-and-elb)
 
