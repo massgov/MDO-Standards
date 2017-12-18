@@ -164,7 +164,30 @@ You should see the results in the console. Further work on this is beyond the sc
 
 3. Creating logic for and implementing the GET method, or other methods as appropriate.
 
+## Serverless
 
+This section will discuss constructing APIs according to the "serverless" paradigm, which comes with it's own peculiarities and requirements. 
 
+### Creating Derivatives for AWS Lambda
+
+### Keeping Lambdas "Warm"
+
+In order to ensure reponsive service, Lambda functions must be used often to ensure AWS does not reprovision the hardware the Lambda is running on. If this reprovisioning happens the next client call to the lambda will need to wait until the lambda's hardware is reprovisioned and ready to use for the call to fully execute and return. This typically means around 2 seconds of latency, which is unacceptable for most APIs.
+
+The solution is pinging the lambda on a schedule using AWS cloudwatch. The following steps describe how to set this up:
+
+1. Log in to the aws console
+
+2. Go to the Cloudwatch dashboard
+
+3. Under Events click "Rules" 
+
+4. Click "Create Rule"
+
+5. Under Event Source select "Schedule" and "Fixed Rate" set to a rate between 1 and 10 minutes
+
+6. Under Targets select "Lambda Function" and select the function we want to keep warm
+
+7. Click "configure details" then give the rule a name and save
 
 
